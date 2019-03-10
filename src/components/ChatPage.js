@@ -1,11 +1,11 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
-import Sidebar from "./components/Sidebar";
-import ChatHeader from "./components/ChatHeader";
-import ChatBody from "./components/ChatBody";
+import Sidebar from "./Sidebar";
+import ChatHeader from "./ChatHeader";
+import ChatBody from "./ChatBody";
 
-import { chats, messages } from "./mock-data";
+import { chats, messages } from "./../mock-data";
 
 const styles = theme => ({
   root: {
@@ -17,7 +17,7 @@ const styles = theme => ({
   }
 });
 
-function App({ classes }) {
+function ChatPage({ classes }) {
   return (
     <div className={classes.root}>
       <ChatHeader />
@@ -27,4 +27,4 @@ function App({ classes }) {
   );
 }
 
-export default withStyles(styles, { withTheme: true })(App);
+export default withStyles(styles, { withTheme: true })(ChatPage);

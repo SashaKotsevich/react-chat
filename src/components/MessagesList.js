@@ -34,14 +34,7 @@ class MessageList extends React.Component {
       <div className={classes.messagesWrapper} ref={this.messageWrapper}>
         {messages &&
           messages.map((message, index) => {
-            const isMessageFromMe = message.sender === "me";
-            return (
-              <Message
-                messageItem={message}
-                messageIndex={index}
-                isMessageFromMe={isMessageFromMe}
-              />
-            );
+            return <Message {...message} messageIndex={index} />;
           })}
       </div>
     );

@@ -1,11 +1,11 @@
 import React from "react";
-import { ListItem, Avatar, ListItemText } from "@material-ui/core";
-import titleInitialise from "./../utils/title-initials";
+import { ListItem, ListItemText } from "@material-ui/core";
+import Avatar from "./Avatar";
 
 function ChatsListItem({ chat, index }) {
   return (
     <ListItem key={index} button>
-      <Avatar>{titleInitialise(chat.title)}</Avatar>
+      <Avatar>{chat.title}</Avatar>
       <ListItemText primary={chat.title} />
     </ListItem>
   );

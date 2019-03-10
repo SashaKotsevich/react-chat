@@ -2,8 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
 import classNames from "classnames";
-import Avatar from "@material-ui/core/Avatar";
-import titleInitialise from "./../utils/title-initials";
+import Avatar from "./Avatar";
 
 const styles = theme => ({
   messageWrapper: {
@@ -27,8 +26,9 @@ const styles = theme => ({
   }
 });
 
-function Message({ classes, messageItem, isMessageFromMe, messageIndex }) {
-  const userAvatar = <Avatar>{titleInitialise(messageItem.sender)}</Avatar>;
+function Message({ classes, sender, content, messageIndex }) {
+  const userAvatar = <Avatar>{sender}</Avatar>;
+  const isMessageFromMe = sender === "me";
   return (
     <div
       key={messageIndex}
@@ -44,8 +44,8 @@ function Message({ classes, messageItem, isMessageFromMe, messageIndex }) {
           isMessageFromMe && classes.messageFromMe
         )}
       >
-        <Typography variant="caption">{messageItem.sender}</Typography>
-        <Typography variant="body1">{messageItem.content}</Typography>
+        <Typography variant="caption">{sender}</Typography>
+        <Typography variant="body1">{content}</Typography>
       </Paper>
       {isMessageFromMe && userAvatar}
     </div>

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
+
 import MessageInput from "./MessageInput";
 import MessagesList from "./MessagesList";
 
@@ -22,4 +24,4 @@ function ChatBody({ classes, messages }) {
     </main>
   );
 }
-export default withStyles(styles, { withTheme: true })(ChatBody);
+export default withStyles(styles)(ChatBody);

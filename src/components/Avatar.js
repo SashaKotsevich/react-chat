@@ -1,6 +1,7 @@
 import React from "react";
 
 import MUIAvatar from "@material-ui/core/Avatar";
+
 import titleInitialise from "./../utils/title-initials";
 import getColor from "./../utils/color-from";
 

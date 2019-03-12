@@ -1,9 +1,15 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import {
+  Paper,
+  Tabs,
+  Tab,
+  AppBar,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
+
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
 const styles = theme => ({
@@ -50,8 +56,8 @@ class WelcomePage extends React.Component {
             <Tab label="Log in " />
             <Tab label="Sign in" />
           </Tabs>
-          {this.state.value === 0 && <LogIn />}
-          {this.state.value === 1 && <SignUp signup={this.props.signup} />}
+          {this.state.value === 0 && <LogIn onSubmit={this.props.login} />}
+          {this.state.value === 1 && <SignUp onSubmit={this.props.signup} />}
         </Paper>
       </>
     );

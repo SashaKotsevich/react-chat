@@ -1,8 +1,17 @@
 import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
 
-import root from "../reducers/root";
+import thunkMiddleware from "redux-thunk";
+import loggerMiddleware from "redux-logger";
+
+import rootReducer from "../reducers/index";
 
 export default function configureStore() {
-  return createStore(root, applyMiddleware(thunkMiddleware));
+  if (process.env.NODE_ENV === "production") {
+    return createStore(rootReducer, applyMiddleware(thunkMiddleware));
+  } else {
+    return createStore(
+      rootReducer,
+      applyMiddleware(thunkMiddleware, loggerMiddleware)
+    );
+  }
 }

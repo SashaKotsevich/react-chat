@@ -53,10 +53,43 @@ export function signup(username, password) {
   };
 }
 
-export function login() {
+export function login(username, password) {
   return dispatch => {
     dispatch({
       type: LOGIN_REQUEST
     });
+    fetch("http://localhost:8000/v1/login", {
+      method: "POST",
+      body: JSON.stringify({
+        username: username,
+        password: password
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json.success) {
+          return json;
+        }
+      })
+      .then(json => {
+        if (!json.token) {
+          throw new Error("Token has not been provided!");
+        }
+        localStorage.setItem("token", json.token);
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: json
+        });
+      })
+      .catch(reason => {
+        dispatch({
+          type: LOGIN_FAILURE,
+          payload: reason
+        });
+      });
   };
 }

@@ -2,6 +2,7 @@ import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
+
 import ChatsListItem from "./ChatListItem";
 
 const styles = theme => ({
@@ -20,4 +21,4 @@ function ChatsList({ chats, classes }) {
   );
 }
 
-export default withStyles(styles, { withTheme: true })(ChatsList);
+export default withStyles(styles)(ChatsList);

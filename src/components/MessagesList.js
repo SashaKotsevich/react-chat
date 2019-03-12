@@ -1,5 +1,7 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
+
 import Message from "./Message";
 
 const styles = theme => ({

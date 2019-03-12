@@ -1,8 +1,11 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
-import classNames from "classnames";
+
 import Avatar from "./Avatar";
+
+import classNames from "classnames";
 
 const styles = theme => ({
   messageWrapper: {

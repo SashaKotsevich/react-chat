@@ -1,4 +1,5 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
 import { Button, TextField } from "@material-ui/core";
 
@@ -34,7 +35,7 @@ class SignUp extends React.Component {
     event.preventDefault();
     const { username, password } = this.state;
     if (this.validate()) {
-      this.props.signup(username.value, password.value);
+      this.props.onSubmit(username.value, password.value);
     }
   };
 

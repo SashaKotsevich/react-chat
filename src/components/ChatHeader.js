@@ -1,4 +1,5 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
@@ -20,4 +21,4 @@ function ChatHeader({ classes }) {
     </AppBar>
   );
 }
-export default withStyles(styles, { withTheme: true })(ChatHeader);
+export default withStyles(styles)(ChatHeader);

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { ListItem, ListItemText } from "@material-ui/core";
+
 import Avatar from "./Avatar";
 
 function ChatsListItem({ chat, index }) {

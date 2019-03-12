@@ -1,4 +1,5 @@
 import React from "react";
+
 import { withStyles } from "@material-ui/core/styles";
 import { Button, TextField } from "@material-ui/core";
 
@@ -23,10 +24,18 @@ class LogIn extends React.Component {
       password: {
         value: "",
         isValid: true
+      },
+      repeatedPassword: {
+        value: "",
+        isValid: true
       }
     };
   }
-  handleFormSubmit = event => {};
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const { username, password } = this.state;
+    this.props.onSubmit(username.value, password.value);
+  };
 
   handleInputChange = event => {
     event.persist();
@@ -46,24 +55,22 @@ class LogIn extends React.Component {
         <TextField
           required
           fullWidth
-          name="username"
-          margin="normal"
-          id="standard-required"
           label="UserName"
-          value={this.state.username.value}
+          margin="normal"
+          name="username"
           className={classes.textField}
+          value={this.state.username.value}
           error={!this.state.username.isValid}
           onChange={this.handleInputChange}
         />
         <TextField
           required
           fullWidth
-          id="standard-password-input"
-          label="Password"
           type="password"
+          label="Password"
+          margin="normal"
           name="password"
           autoComplete="current-password"
-          margin="normal"
           className={classes.textField}
           error={!this.state.password.isValid}
           value={this.state.password.value}

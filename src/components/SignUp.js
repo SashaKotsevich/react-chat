@@ -14,23 +14,21 @@ const styles = theme => ({
 });
 
 class SignUp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: {
-        value: "",
-        isValid: true
-      },
-      password: {
-        value: "",
-        isValid: true
-      },
-      repeatedPassword: {
-        value: "",
-        isValid: true
-      }
-    };
-  }
+  state = {
+    username: {
+      value: "",
+      isValid: true
+    },
+    password: {
+      value: "",
+      isValid: true
+    },
+    repeatedPassword: {
+      value: "",
+      isValid: true
+    }
+  };
+
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password } = this.state;

@@ -15,10 +15,8 @@ const styles = theme => ({
 });
 
 class MessageList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.messageWrapper = React.createRef();
-  }
+  messageWrapper = React.createRef();
+
   componentDidMount() {
     setTimeout(this.ScrollDownHistory, 0);
   }

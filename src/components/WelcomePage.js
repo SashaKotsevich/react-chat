@@ -23,12 +23,10 @@ const styles = theme => ({
 });
 
 class WelcomePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0
-    };
-  }
+  state = {
+    value: 0
+  };
+
   componentDidMount() {
     this.props.recieveAuth();
   }

@@ -3,7 +3,12 @@ import React from "react";
 import { Provider } from "react-redux";
 import configureStore from "../store/store";
 
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import PrivateRoute from "../containers/PrivateRoute";
 
 import ChatPage from "./ChatPage";

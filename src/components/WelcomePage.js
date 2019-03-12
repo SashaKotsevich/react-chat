@@ -29,6 +29,7 @@ class WelcomePage extends React.Component {
 
   render() {
     const { classes } = this.props;
+
     return (
       <>
         <AppBar color="primary">
@@ -50,7 +51,7 @@ class WelcomePage extends React.Component {
             <Tab label="Sign in" />
           </Tabs>
           {this.state.value === 0 && <LogIn />}
-          {this.state.value === 1 && <SignUp />}
+          {this.state.value === 1 && <SignUp signup={this.props.signup} />}
         </Paper>
       </>
     );

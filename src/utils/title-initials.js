@@ -5,8 +5,8 @@ export default function titleInitials(title) {
       .map(word => word[0])
       .map(char => char.toUpperCase())
       .slice(0, 2);
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     return "AN";
   }
 }

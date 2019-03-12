@@ -2,11 +2,14 @@ import { connect } from "react-redux";
 
 import WelcomePage from "../components/WelcomePage";
 
-import * as actions from "../actions/auth";
+import { login, signup, recieveAuth } from "../actions/auth";
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user
+});
 
 export default connect(
   mapStateToProps,
-  actions
+  { login, signup, recieveAuth }
 )(WelcomePage);

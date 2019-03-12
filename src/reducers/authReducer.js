@@ -1,51 +1,57 @@
-import {
-  SIGNUP_REQUEST,
-  SIGNUP_SUCCESS,
-  SIGNUP_FAILURE,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT_REQUEST,
-  LOGOUT_SUCCESS,
-  LOGOUT_FAILURE
-} from "../constants/constants";
+import * as types from "../constants/constants";
 
 const token = localStorage.getItem("token");
 
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: !!token,
   user: null,
   token
 };
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case SIGNUP_REQUEST:
+    case types.SIGNUP_REQUEST:
       return state;
-    case SIGNUP_SUCCESS:
+    case types.SIGNUP_SUCCESS:
       return {
         ...state,
         isAuthenticated: !!action.payload.token,
-        token: action.payload.token
+        token: action.payload.token,
+        user: action.payload.user
       };
-    case SIGNUP_FAILURE:
+    case types.SIGNUP_FAILURE:
       return state;
-    case LOGIN_REQUEST:
+    case types.LOGIN_REQUEST:
       return state;
-    case LOGIN_SUCCESS:
+    case types.LOGIN_SUCCESS:
       return {
         ...state,
         isAuthenticated: !!action.payload.token,
-        token: action.payload.token
+        token: action.payload.token,
+        user: action.payload.user
       };
-    case LOGIN_FAILURE:
+    case types.LOGIN_FAILURE:
       return state;
-    case LOGOUT_REQUEST:
+    case types.LOGOUT_REQUEST:
       return state;
-    case LOGOUT_SUCCESS:
+    case types.LOGOUT_SUCCESS:
       return state;
-    case LOGOUT_FAILURE:
+    case types.LOGOUT_FAILURE:
       return state;
+    case types.RECIEVE_AUTH_REQUEST:
+      return state;
+    case types.RECIEVE_AUTH_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user
+      };
+    case types.RECIEVE_AUTH_FAILURE:
+      return {
+        ...state,
+        isAuthenticated: false,
+        token: undefined
+      };
     default:
       return state;
   }

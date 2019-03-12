@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 import { withStyles } from "@material-ui/core/styles";
 import {
@@ -28,13 +29,19 @@ class WelcomePage extends React.Component {
       value: 0
     };
   }
+  componentDidMount() {
+    this.props.recieveAuth();
+  }
 
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, login, signup, isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/chat" />;
+    }
 
     return (
       <>
@@ -56,8 +63,8 @@ class WelcomePage extends React.Component {
             <Tab label="Log in " />
             <Tab label="Sign in" />
           </Tabs>
-          {this.state.value === 0 && <LogIn onSubmit={this.props.login} />}
-          {this.state.value === 1 && <SignUp onSubmit={this.props.signup} />}
+          {this.state.value === 0 && <LogIn onSubmit={login} />}
+          {this.state.value === 1 && <SignUp onSubmit={signup} />}
         </Paper>
       </>
     );

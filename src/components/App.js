@@ -1,16 +1,13 @@
 import React from "react";
 
 import { Provider } from "react-redux";
+import configureStore from "../store/store";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
+import PrivateRoute from "../containers/PrivateRoute";
+
 import ChatPage from "./ChatPage";
 import WelcomePage from "../containers/WelcomePage";
-import configureStore from "../store/store";
 
 const store = configureStore();
 
@@ -20,7 +17,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/(welcome)?" component={WelcomePage} />
-          <Route exact path="/chat" component={ChatPage} />
+          <PrivateRoute exact path="/chat" component={ChatPage} />
           <Redirect to="/" />
         </Switch>
       </Router>

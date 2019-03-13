@@ -24,4 +24,5 @@ function ChatBody({ classes, messages }) {
     </main>
   );
 }
+
 export default withStyles(styles)(ChatBody);

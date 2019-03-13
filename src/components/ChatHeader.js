@@ -21,4 +21,5 @@ function ChatHeader({ classes }) {
     </AppBar>
   );
 }
+
 export default withStyles(styles)(ChatHeader);

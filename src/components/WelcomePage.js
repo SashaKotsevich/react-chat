@@ -16,8 +16,8 @@ import SignUp from "./SignUp";
 const styles = theme => ({
   AuthConteiner: {
     margin: "10% 0 0 37.5%",
-    width: "35%",
-    height: "auto%",
+    width: "60vh",
+    height: "auto",
     padding: "2%"
   }
 });
@@ -57,10 +57,12 @@ class WelcomePage extends React.Component {
             indicatorColor="secondary"
             textColor="primary"
             onChange={this.handleChange}
+            variant="fullWidth"
           >
-            <Tab label="Log in " />
-            <Tab label="Sign in" />
+            <Tab label="Log in " fullWidth />
+            <Tab label="Sign in" fullWidth />
           </Tabs>
+
           {this.state.value === 0 && <LogIn onSubmit={login} />}
           {this.state.value === 1 && <SignUp onSubmit={signup} />}
         </Paper>

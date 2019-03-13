@@ -21,4 +21,5 @@ function AddButton({ classes }) {
     </Fab>
   );
 }
+
 export default withStyles(styles, { withTheme: true })(AddButton);

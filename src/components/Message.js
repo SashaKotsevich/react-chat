@@ -32,6 +32,7 @@ const styles = theme => ({
 function Message({ classes, sender, content, messageIndex }) {
   const userAvatar = <Avatar>{sender}</Avatar>;
   const isMessageFromMe = sender === "me";
+
   return (
     <div
       key={messageIndex}

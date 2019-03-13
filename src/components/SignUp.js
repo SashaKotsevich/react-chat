@@ -47,6 +47,7 @@ class SignUp extends React.Component {
       }
     }));
   };
+
   validate() {
     const { password, repeatedPassword } = this.state;
     if (password.value !== repeatedPassword.value) {

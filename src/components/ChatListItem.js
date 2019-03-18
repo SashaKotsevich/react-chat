@@ -4,9 +4,9 @@ import { ListItem, ListItemText } from "@material-ui/core";
 
 import Avatar from "./Avatar";
 
-function ChatsListItem({ chat, index }) {
+function ChatsListItem({ chat }) {
   return (
-    <ListItem key={index} button>
+    <ListItem button>
       <Avatar>{chat.title}</Avatar>
       <ListItemText primary={chat.title} />
     </ListItem>

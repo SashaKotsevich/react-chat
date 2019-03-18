@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 import ChatHeader from "./ChatHeader";
 import ChatBody from "./ChatBody";
 
-import { chats, messages } from "./../mock-data";
+import { messages } from "./../mock-data";
 
 const styles = theme => ({
   root: {
@@ -18,14 +18,22 @@ const styles = theme => ({
   }
 });
 
-function ChatPage({ classes }) {
-  return (
-    <div className={classes.root}>
-      <ChatHeader />
-      <Sidebar chats={chats} />
-      <ChatBody messages={messages} />
-    </div>
-  );
+class ChatPage extends React.Component {
+  componentDidMount() {
+    const { fetchAllChats, fetchMyChats } = this.props;
+    Promise.all([fetchAllChats(), fetchMyChats()]);
+  }
+  render() {
+    const { classes } = this.props;
+    const { chats } = this.props;
+    return (
+      <div className={classes.root}>
+        <ChatHeader />
+        <Sidebar chats={chats} />
+        <ChatBody messages={messages} />
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles, { withTheme: true })(ChatPage);
